@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cole Nichols Story</title>
+	</head>
+
+	<body>
+	<b style="font-size:36px" color: lightslategray;>A Shadow in the Forest</b>
+    <div id="Begin_Button">
+        <div style="height:18px"></div>
+	    <button style="font-size:32px; color: mintcream; background-color: royalblue;">Begin your Journey</button>
+    </div>
+	<p style="font-size:24px" id="P1"></p>
+	<p style="font-size:24px" id="P2"></p>
+	<p style="font-size:24px" id="P3"></p>
+	<p style="font-size:24px" id="P4"></p>
+	<p style="font-size:24px" id="P5"></p>
+	<div style="display:flex;">
+		<input id=Restart_Button style="font-size:32px; color:red;" onclick="Restart()" type="button" value="Restart"/>
+        <div style="width:10px"></div>
+        <input id=Continue_Button style="font-size:32px; color:green;" onclick="Continue()" type="button" value="Continue"/>
+    </div>
+	<noscript>
+        <div style="height:24px"></div>
+        Your browser does not support JavaScript, which this program needs to run. Please use a browser that supports JavaScript.
+    </noscript>
+	<div style="height:24px"></div>
+	<var style="font-size:24px">Written by Cole Nichols</var>
+	</body>
+
+	<script type="text/javascript"> //"Begin button" script
+    //Begin button
+	var button = document.getElementById('Begin_Button')
+	button.addEventListener('click',hideshow,false);
+
+    function hideshow() {
+		document.getElementById("P1").style.display = "block";
+		document.getElementById("Continue_Button").style.display = "block";
+		document.getElementById("Restart_Button").style.display = "block";
+		this.style.display = 'none'
+    }
+	
+	</script>
+	
+	<script type="text/javascript"> //Hide elements; "Continue" and "Restart" button scripts
+	//Hide elements
+	document.getElementById("P1").style.display = "none"
+	document.getElementById("P2").style.display = "none"
+	document.getElementById("P3").style.display = "none"
+	document.getElementById("P4").style.display = "none"
+	document.getElementById("P5").style.display = "none"
+	document.getElementById("Continue_Button").style.display = "none"
+	document.getElementById("Restart_Button").style.display = "none"
+	
+	//Continue button
+	function Continue() {
+		if (document.getElementById("P2").style.display == "none") {document.getElementById("P2").style.display = "block"}
+		else if (document.getElementById("P3").style.display == "none") {document.getElementById("P3").style.display = "block"}
+		else if (document.getElementById("P4").style.display == "none") {document.getElementById("P4").style.display = "block"}
+		else if (document.getElementById("P5").style.display == "none") {
+			document.getElementById("P5").style.display = "block"
+			document.getElementById("Continue_Button").style.display = "none"
+		}
+		if (document.getElementById("P4").style.display == "block" && z == "1") {
+			document.getElementById("Continue_Button").style.display = "none"
+		}
+	}
+	
+	//Restart button
+	function Restart() {location.reload()}
+	</script>
+
+	<script  type="text/javascript"> //Start level  script
+		//P1 LEVEL START
+		document.getElementById("P1").innerHTML = "You are in the woods, and you see a dark shadow moving through the trees. You feel an urge to get closer, to find out what it is, but something doesn't feel right. It doesn't look like a normal shadow. It's almost a fluid-like darkness sweeping through the forest in the dull afternoon light." // Level 1
+	
+    	//P2 LEVEL START
+		var x = Math.floor(Math.random() * 20+1);
+		if (x < 10) {
+			document.getElementById("P2").innerHTML = `You rolled ${x}. You decide to follow it. The figure stops and waits until you are no more than ten feet away, and then silently creeps further. You think it's trying to lead you somewhere. But where?`; // Level 2a
+			
+			//P3 LEVEL START
+			var x = Math.floor(Math.random() * 20+1);
+			if (x < 10) {
+				document.getElementById("P3").innerHTML = `You rolled ${x}. You keep walking, your heart pounding, and a thick fog fills the air. Breathing becomes a struggle as each breath gets heavier and heavier. You see the outline of an old cabin in the distance.`; // Level 3.1a
+				
+				//P4 LEVEL START
+				var x = Math.floor(Math.random() * 20+1);
+				if (x < 10) {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. Ignoring the screaming instinct to run away, you continue. Every alarm in your mind is blaring red. Your heart is beating out of your chest, and your ears are hit with a pressure wave every heartbeat.`; // Level 4.1a
+					
+					//P5 LEVEL START
+					if (x < 10) {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. Eventually, you reach the cabin, and as the figure approaches, the door seems to get blown off of its hinges. With a shaky, rapid, stuttering breath, you follow it through the door, down a set of old, creaky stairs, and into a dark room. There are skeletons on the floor and deep scratches on the mossy brick walls. A hidden door opens on the wall, and a huge, black dog walks out of it. It stares you down with its deep, ominous eyes as dark as the thing that brought you here. It jumps on top of you and sinks its long, sharp teeth into your neck. A sharp pain shoots through your body. Your vision fades into a fuzzy darkness, the current world fades away, and the people you loved race through your mind. You feel the warm grasp of sleep overcome you, and all is lost.`; // Level 5.1a END
+						//THE END
+					}
+					else {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You finally reach the cabin, and you are led upstairs, where you see a white room. The walls are white, the bed is white, the torn curtains are white, and it looks dark and dingy, but bright and white at the same time. Tiredness flows through your body, and you feel a desire to sit down. You don't want to, as the figure is standing in the corner, but the bed is inviting you to come lay down. "Just for a bit." You cannot stand it anymore. You feel as though if you fight it any longer you will fall over. You lay down, and the world slows to a blurry standstill. The bed is so consoling you could almost lay there forever. Your eyes shut, and the bed holds you as your breathing slows and your heart crawls to a stop. You feel a release that cannot be put into words, and everything is still.`; // Level 5.1b END
+						//THE END
+					}
+				}
+				else {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. Creeped out, you turn around and start walking the other way, the world in a rush. The figure shrieks in a terrible, scratchy tone. You look back at it and see it speeding towards you.`; // Level 4.1b
+					
+					//P5 LEVEL START
+					if (x < 10) {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You run faster, as fast as you can, stumbling over tree roots and branches. The trees seem to lean in and reach for you. You are running at maximum speed, but the gap is closing. "This is it," you think as the shadow figure inches closer and closer. It reaches out with its mangled, wispy hand and grabs you by the shoulder. You see a flash of pure white, blinding light, and then it flips to a black darker than any back you've ever seen before. The world is no more, and you are alone.`; // Level 5.2a END
+						//THE END
+					}
+					else {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You surrender and stop running. It doesn't stop until it's within an inch of your face. It stares into your soul with its dark, lifeless eyes. It starts growling. Then you feel the sheets of your bed materialize around you, and the world of the forest fades away. The growl fades into a low grumble coming from the radiator. You are safe. It was all just a dream. You close your eyes and let the whir of the fan rock you back to sleep.`; // Level 5.2b END
+						//THE END
+					}
+				}
+			}
+			else {
+				document.getElementById("P3").innerHTML = `You rolled ${x}. You hear a deep, raspy growl from a nearby bush and jump as a jolt propagates through your body. Every heartbeat feels like a blow to the chest. The growls quickly grow in intensity and seem to be creeping closer.`; // Level 3.1b
+				
+				//P4 LEVEL START
+				var x = Math.floor(Math.random() * 20+1);
+				if (x < 10) {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. You run, but it runs faster. You look back at the rapidly nearing creature and see something that resembles a massive, black dog. You trip over a downed tree branch and quickly snap your head around just in time to see a smooth, mossy rock for a fraction of a second before you hear a quick, hard thud. Pain shoots through your head like a dull bullet, and the world flashes black. You hear the black beast pummeling towards you. With warm, slick blood pouring down your face, you flip around and hear its massive paws rebound off the ground one last time before it comes down on your chest with the force of a freight train. You feel a crunch deeper and more painful than anything you've ever experienced in your life. Blood is pouring into your eyes and mouth. Numbness is spreading from your toes and fingertips. Your chest is flattened, and you are suffocating. You just want it to be over. The beast tears at your flesh. As you choke on the warm, slippery, metallic blood, your pain dulls, and the world slips away.` // Level 4.2a
+					// THE END
+					var z = "1"
+				}
+				else {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. You slowly back away, looking at the bush, and the growls slow, becoming quiet. All you can year is the rapid beats of your heart and your quaking breaths. You look for the shadow but do not see it. Not knowing whether to feel relief or worry, you keep backing away until you feel your shoes scrape against a rocky surface. You hear the pebbles scrape underneath your feet in the eerie silence of the forest. You realize you've been backing up for nearly a minute now and assume you're safe to turn around. Doing so, you see an abrupt, rocky cliff. You didn't think there were any cliffs nearby when you drove up here to go camping. That feels so long ago. Almost as if it were a different life that you had not lived. The forest had become your past, present, and future those few hours ago when you followed the shadow. You snap back to reality, out of your head, and see that the fog has gotten thicker. You are getting tired and decide to try to make it back to camp. You turn back towards the forest and realize you have no idea where you are. Just then, you hear a rumbling that seems to come from in front, behind, to the left, right, and underneath you. It's coming from everywhere. The ground begins to shake in a deep, slow thunder. About five feet away, you see a crack spread across the clifftop. Before you can comprehend what is happening, the earth beneath your feet drops. A drawn-out cracking noise fills the air as your stomach knots, and the pull of gravity ceases to exist.` // Level 4.2b
+				
+					//P5 LEVEL START
+					var x = Math.floor(Math.random() * 20+1);
+					if (x < 10) {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You are in freefall, and all you can see below is a thick layer of fog hundreds of feet below with the dark tops of pine trees poking through the top. The wind whips in your ears as cold, damp air tears at your skin like tiny pellets. The cliffside roars beside you. Faster and faster, you plummet towards the ground. You look out at the horizon and see a raven. You watch as it glides gracefully through the wind. It dives down into the trees, which are getting closer every moment. You shut your eyes, and a thud echoes through the trees.` // Level 5.3a
+						// THE END
+					}
+					else {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You feel a jolt spread through your body, and slam your knees up into the desk that seems to have appeared out of thin air. Confused, you look around and realize that you aren't in a forest. There never was a forest. The sharp fluorescent lighting makes your eyes ache. You fell asleep in Algebra II class, and now everyone is staring at you like you're crazy after you jumped and slammed yourself into the desk. "What a dream," you contemplate.` // Level 5.3b
+						// THE END
+					}
+				}
+			} 
+		}
+		
+		else {
+			//P2 LEVEL START
+			document.getElementById("P2").innerHTML = `You rolled ${x}. The thought of it makes your stomach turn, and you decide to head back to camp. Your walk turns into a jog, which turns into a run, which turns into a sprint. The shadows are chasing you, jumping at you, and your attention is drawn to every little movement. You sprint through the forest in a panic. You feel as though the trees themselves are hunting you. You try to calm yourself down. You slow down to a fast walk and think "There's nothing here. There's nothing here. There's nothing here. There's nothing here..." You whip your head back and forth. You see dark things in the edges of your vision, but when you look, there's nothing there.`; //Level 2b
+
+			//P3 LEVEL START
+			var x = Math.floor(Math.random() * 20+1)
+			if (x < 10) {
+				document.getElementById("P3").innerHTML = `You rolled ${x}. Taking a deep breath, you stop and look around. The tiredness from running sets in, and you feel like you're going to pass out. After a few seconds, it passes and you catch your breath. You are finally able to fully comprehend your surroundings, and you are lost. Nothing looks familiar, and you don't know which way you came from.`; //Level 3.2a
+				
+				//P4 LEVEL START
+				var x = Math.floor(Math.random() * 20+1)
+				if (x < 10) {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. You pick a direction and start walking that way. After a few minutes, you reach the edge of the forest. You stand atop a hill with dry grass flowing in the wind extending as far as the eye can see. There is a heavy fog that sits just above the damp, brown dirt. The hills roll across the landscape. The soft yellow grass stands out against the hazy, light grey horizon and the overcast sky. You stand for a while and admire the view.`; //Level 4.3a
+				
+					//P5 LEVEL START
+					var x = Math.floor(Math.random() * 20+1)
+					if (x < 10) {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. After a few minutes, you start walking into the grass. The sun is falling behind the earth, and the sky is a soft, fiery orange. You feel at peace with the world, and wish this moment could last forever. You reach your arm out and let the tall, soft grass brush against your hand. The sky clears, and as the sun disappears, stars fill the heavens. Almost forgetting you are lost, you decide to sleep out in the grassy fields and find your way back to camp tomorrow. You lay your head down on the soft, pillow-like dirt, and shut your eyes. When you awake, the sun is just coming up, and the sky is the color of pink lemonade. You head into the forest and quickly find your campsite. The firepit is still warm. You pack up and drive home. Over the years you try to find the fields again, with no luck. It's as if they were never there. The fields were a truly magical place, and something you will never forget.`; //Level 5.4a END
+						//THE END
+					}
+					else {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You decide to try to find the way back to camp before the sun falls below the horizon, but it starts to get dark. Your surroundings become a muddy blur of black, brown, and grey. You cannot tell dirt from rock or trees from the sky. It gets darker, and mud turns to soot. You cannot see anything, so you start feeling your way around the forest. You reach your foot out, but nothing is there. You try to pull back, but your weight is already too far over the edge. You fall for a few seconds before hitting a hard rocky surface. You can not stand, but you reach your hand out and feel a rough brick wall. You must have fallen into an old well. You realize the extent to which you have hurt yourself. Everything is throbbing with pain. You scream for help, but nobody is there to hear. You try to stand once more, but the pain is unbearable. You spend the next few days pleading for help. Your throat is as dry as a desert, and your head is pounding. Your chest begins to throb with pressure, and you become lightheaded. Your vision fades to blackness, and you never see the light of the sun again.`; //Level 5.4b END
+						//THE END
+					}
+				}
+				else {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. You turn around and try to head back the way from which you came. After many hours, you make no progress, and it's getting cold and dark. You need to start a fire. You have no fire-building materials, and you know rubbing two sticks together doesn't quite work, but you have your phone. You get an idea. Even with a "dead" battery, the sensitive Li-Ion cell in your phone still holds a charge. If you manage to short the internal layers it might catch on fire. You search for a rock and find one that fits nicely in your palm. You pull your phone out of your pocket and turn it over. You mutter, "I sure hope this works," as you send the rough stone into the back glass. It shatters, and you brush the broken glass aside. You pull the adhesive tabs, and the battery pops out. You gather some kindling, composed of dry leaves, grass, and a few small sticks. You put it all in a pile on top of the battery and bring the rock down on top. Nothing happens, so you smash it down again. With a pop, a little puff of smoke escapes the battery. It starts hissing. The plastic label around the battery warps and shrivels. The leaves begin to smoke. You blow on it lightly, and it ignites with a woosh. The burning Lithium-Ion cell smells terrible, and the fumes burn your throat, but you have a fire. After watching it for a bit, you leave to find some sticks. You find a dead tree only twenty or so meters away and snap a branch off. You start walking back towards the fire and see a large amount of orange light coming from the area. Illuminated by the light is a huge cloud of smoke making its way through the trees. "Oh no," you remark. You start jogging and finally get a clear view. The fire has spread to the surrounding leaves. You run towards it, but quickly realize it's too late. The fire is spreading at a walking speed and only accelerating, already covering a ten-meter radius. The fire climbs the trees, its infernal tendrils reaching up and taking hold of the branches. Even from a distance, the heat is extreme, searing your face. It crawls closer and closer, faster and faster. You start backing away, and it follows you. The crawl turns to a trot, and anything within a meter catches fire spontaneously, without contact. You realize you need to start running and do so, but it might be too late. The heat scorches your back, and the whoosh gets louder and more intense behind you. "What have I done," the entire forest is illuminated like day, saturated in the harsh, orange, flickering light. The fire is fast, faster than you. You push a full sprint, but the flames soar behind you. They are catching up. The heat builds, and the crackling, roaring sound of flames vaporizing everything in their path fills the air. You cannot keep this speed up forever, and you start to stumble. Every little bump in the ground is a tripping hazard. You fall, and the flames sweep over you. The heat rips away your skin. Your sinuses are on fire. At first, it is excruciating, but after about ten seconds, there is no pain. You only see bright, burry orange light. Your throat is closed, and you are gaping for air. The world fades away.`; //Level 4.3b END
+					//THE END
+					var z = "1"
+				}
+			}
+			else {
+				document.getElementById("P3").innerHTML = `You rolled ${x}. You cannot stay calm, and pure fear sets in. You run as fast as you can. When you make it back to camp, you go straight to the fire and sit down on a log. Your heart is still pounding, but you feel safer. The shadows cannot reach you here. "Why did I come here? I never should've left home." You had been here as a kid and had a terrifying experience, but you thought it was your imagination.`; //Level 3.2b
+			
+				//P4 LEVEL START
+				var x = Math.floor(Math.random() * 20+1)
+				if (x < 10) {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. A rustling sound comes from the bushes. "NO! GO AWAY!" you cry out. You pull a flaming stick out of the firepit and point it at the bush. A squirrel scampers out of the bush and up a tree. "Oh." You turn back toward the fire and put the stick back. Maybe you're just being paranoid. There's probably nothing out here in the first place.`; //Level 4.4a
+					
+					//P5 LEVEL START
+					var x = Math.floor(Math.random() * 20+1)
+					if (x < 10) {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. The rustling starts again, and you scream, "NO! NO! NO!" There is a set of eyes glowing orange, staring you down. You throw a rock. "GET AWAY FROM ME!" It steps away from the bush, slowly walking towards you, stalking you. It has a huge panther-like body. It keeps coming closer until its warm, moist breath is hitting your face. You freeze, not daring to make a sound. It begins to purr and pushes its face against you. Confused, you reach out and pet its soft, black coat. It pushes against your hand. "You're friendly?" You ask as you stroke its fur. You're tired after all of the excitement and decide to get some sleep. You walk to your tent, and it follows you. You don't believe what is happening, and as you lay down in your sleeping bag, it lays at your side, still purring with an intensity that makes the ground quiver. The warmth and sound put you to sleep in a matter of minutes. When you wake, it is not there. You will never know whether it was just a dream. "It felt too real to be a dream." That night will occupy your mind for months to come.`; //Level 5.5a END
+						//THE END
+						
+					}
+					else {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You focus on the heat of the fire, ignoring the outside world. "Maybe this was a mistake," you think. It starts raining. "Most definitely." You take shelter in your tent, but the dampness trapped in the tent doesn't go away. You sink into your sleeping bag, hoping to get some sleep, and then you hear footsteps outside the tent. It sounds like a big animal. It sniffs the air. You stay silent, hoping it won't know you're there. You hear something touch the tent, but it's too dark to see. You hear claws pop through the fabric of the tent, and slice down, making a big opening. You see the outline of a bear's head poke through the hole. It reaches its neck down and sniffs your face. "NO! BACK AWAY!" It jumps back, startled by the yell, and then it stands on its back legs and roars. "GO AWAY!" It lunges down and bites into your throat. You try to scream but no sound comes out. The forest is silent.`; //Level 5.5b END
+						//THE END
+						
+					}
+				}
+				else {
+					document.getElementById("P4").innerHTML = `You rolled ${x}. You prod the fire, causing ambers to ascend into the treetops. The wind starts to pick up, shaking the trees violently. Your tent is tied down, so you don't have to worry about it blowing aw-- Nevermind, there it goes. Your tent just blew away, tumbling into the distance. Your only form of shelter is gone.`; //Level 4.4b
+					
+					//P5 LEVEL START
+					var x = Math.floor(Math.random() * 20+1)
+					if (x < 10) {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You decide to chase it down. You run after it, following it through the forest until it gets caught in a tree. You can't reach it, so you climb. It is just out of reach, and you loosen your grip on the tree so you can grab it. Your fingers slip, and you fall. You hit the ground and think you're okay, but when you touch the back of your head, it is wet and warm. You realize it's blood. You start to feel dizzy and pass out, never to wake again.`; //Level 5.6a END
+						//THE END
+						
+					}
+					else {
+						document.getElementById("P5").innerHTML = `You rolled ${x}. You decide to go without the tent and find a soft spot in the dirt next to the fire. You lay down and close your eyes but cannot sleep. You start to regret not getting the tent back. After some time, you get up and gather some leaves, setting them in your spot next to the fire. You lay back down. The ground is still hard, but it is better. You finally fall asleep, and when you wake up, your back hurts, and you're cold, but you're alive. You walk to the truck to head home and feel like an idiot when you realize you could have slept in the truck all along.`; //Level 5.6b END
+						//THE END
+					}
+				}
+			}
+		}
+	</script>
+</html>
