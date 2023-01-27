@@ -1,6 +1,6 @@
 /*
 
-AUTHORS: Cole Nichols, Emery Denham, ______ ______
+AUTHORS: Cole Nichols, Emery Denham, Janessa Oudenhoven
 DATE: 1/24/2023
 VERSION: 1.0
 
@@ -18,15 +18,15 @@ Servo myservo;  // create object to control servo
 // CALIBRATION VALUES
 const int STEP_DEGREES = 10;       // variable to set number of degrees servo turns upon each reading
 const int STEPS_PER_LOOP = 3;      // variable to set number of steps servo turns upon each search loop
-const int MOVE_DELAY_FAST = 15;    // variable to set time between servo movement and photocell reading
-const int MOVE_DELAY_SLOW = 500;   // variable to set time between servo movement and photocell reading
+const int MOVE_DELAY_FAST = 30;    // variable to set time between servo movement and photocell reading
+const int MOVE_DELAY_SLOW = 300;   // variable to set time between servo movement and photocell reading
 const int LOOP_DELAY = 500;       // variable to set time between optimize loops
-const int SERVO_LIMIT_MIN = 10;     // variable to set minimum servo position [30]
-const int SERVO_LIMIT_MAX = 170;   // variable to set maximum servo position [130]
-const int SERVO_CENTER = 90;       // variable to set base servo position [80]
-const float LOOP_TOLORANCE = 10;   // variable to set tolarance for photoresistor changes (Ex. 12.5 = 12.5%)
+const int SERVO_LIMIT_MIN = 15;     // variable to set minimum servo position [30]
+const int SERVO_LIMIT_MAX = 130;   // variable to set maximum servo position [130]
+const int SERVO_CENTER = 80;       // variable to set base servo position [80]
+const float LOOP_TOLORANCE = 3;   // variable to set tolarance for photoresistor changes (Ex. 12.5 = 12.5%)
 
-// OTHER CONSTANTS
+// OTHER   CONSTANTS
 const int SERVO_LOOP_POS_MIN = SERVO_LIMIT_MIN + STEP_DEGREES;  // variable to set minimum servo position for loop
 const int SERVO_LOOP_POS_MAX = SERVO_LIMIT_MAX - STEP_DEGREES;  // variable to set maximum servo position for loop
 
@@ -34,8 +34,8 @@ const int SERVO_LOOP_POS_MAX = SERVO_LIMIT_MAX - STEP_DEGREES;  // variable to s
 int trackPin = A0;            // pin for tracking photoresistor
 int trackValue = 0;           // variable to store value read from tracking photoresistor
 int baseTrackValue = 0;       // variable to store value read from tracking photoresistor upon last loop
-int servoPos = 90;            // variable to store current servo position
-int baseServoPos = 90;        // variable to store servo position before movement
+int servoPos = 80;            // variable to store current servo position
+int baseServoPos = 80;        // variable to store servo position before movement
 int maxTrackValue = 0;        // variable to store max value read from tracking photoresistor
 int maxTrackPos = 0;          // variable to store servo position where max value was read
 int toleratedTrackValue = 0;  // variable to store an adjusted value derived from the tracking photoresistor ( maxTrackValue * ( 1 + ( LOOP_TOLORANCE * 0.01 ) ) )
@@ -44,11 +44,12 @@ bool broadSearch = true;
 void setup() {
 
   pinMode(LED_BUILTIN, OUTPUT); // enables optimize indicator LED
-  myservo.attach(11);           // attaches servo on pin 9 to servo object
+  myservo.attach(9);           // attaches servo on pin 9 to servo object
 
 }
 
 void loop() {
+  
   // STARTUP PROCEDURE
   if(broadSearch == true) {
     
@@ -91,7 +92,7 @@ void loop() {
     delay(100);                       // delay to determine indicator LED on time
     digitalWrite(LED_BUILTIN, LOW);   // turn optimization indicator LED off
 
-    maxTrackValue = trackValue; // set efficiency record
+    maxTrackValue = trackValue; // reset efficiency record
     baseServoPos = servoPos;    // set base servo position variable to current position for later reference
     
     for (int i = 0; i < STEPS_PER_LOOP && servoPos <= SERVO_LOOP_POS_MAX; i++) {  // loop to move servo forward and check if position is better
